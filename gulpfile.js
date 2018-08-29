@@ -1,11 +1,15 @@
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 var pug = require('gulp-pug');
-var uglify = require('gulp-uglify');
+var composer = require('gulp-uglify/composer');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean-dest');
+var eslint = require('gulp-eslint');
+var uglifyjs = require('uglify-es');
 var del = require('del');
 var browserSync = require('browser-sync');
+
+var uglify = composer(uglifyjs, console);
 
 var src = 'src/';
 var dest = 'dist/';
@@ -25,6 +29,7 @@ gulp.task('pug', () => {
 
 gulp.task('uglify', () => {
     return gulp.src(src + 'js/**/*.js')
+        .pipe(eslint())
         .pipe(uglify())
         .pipe(gulp.dest(dest + 'js/'));
 });
