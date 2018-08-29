@@ -11,8 +11,10 @@ function updateTemp() {
 }
 
 function updateTempDisplay(response) {
-    u('#current-temp .value').html(response.temp);
-    u('#setpoint .value').html(response.setpoint);
+    response.then(data => {
+        u('#current-temp .value').html(data.temp);
+        u('#setpoint .value').html(data.setpoint);
+    });
     return true;
 }
 
