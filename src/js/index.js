@@ -21,7 +21,8 @@ function updateTempDisplay(response) {
 function updateSetpoint(direction) {
     fetch('/api/temp', {
         method: 'POST',
-        data: JSON.stringify({ setpoint: direction
+        body: JSON.stringify({ 
+            setpoint: direction
         }),
         headers: {
             'Content-Type': 'application/json'
