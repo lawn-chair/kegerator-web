@@ -1,11 +1,13 @@
 html
-    title Title
-    block css
-        link(href='css/mini-default.min.css', rel='stylesheet')
-        link(href='css/bundle.css', rel='stylesheet')
-    block scripts
-        script(src="js/umbrella.min.js")
-        script(src="js/index.js")
+    head
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        block css
+            link(href='css/mini-default.min.css', rel='stylesheet')
+            link(href='css/bundle.css', rel='stylesheet')
+        block scripts
+            script(src="js/umbrella.min.js")
+            script(src="js/index.js")
 
     body
         #header
